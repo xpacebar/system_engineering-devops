@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d ! -path . | wc -1
+find /0x02-shell_redirections -type d -iname ".*" -ls | wc -1
