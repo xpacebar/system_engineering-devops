@@ -3,3 +3,8 @@
 # processes whose name contains the word "bash".
 
 pgrep bash -l
+
+for pid in $pids; do
+  process_name=$(ps -p $pid -o comm=)
+  echo "$pid $process_name"
+done
