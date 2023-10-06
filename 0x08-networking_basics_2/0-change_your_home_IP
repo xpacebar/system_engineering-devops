@@ -6,5 +6,5 @@
 localhost_ip="127.0.0.2"
 facebook_ip="8.8.8.8"
 
-echo -e "$localhost_ip\tlocalhost" >> /etc/hosts
-echo -e "$facebook_ip\tfacebook.com" >> /etc/hosts
+sed -i "s/^127\.0\.0\.1.*localhost$/127.0.0.1 localhost\n$localhost_ip localhost/" /etc/hosts
+sed -i "s/^.*facebook\.com$/$facebook_ip facebook.com/" /etc/hosts
