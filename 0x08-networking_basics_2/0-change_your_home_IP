@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-# Configures an Ubuntu server as follows:
-#   - localhost resolves to 127.0.0.2
-#   - facebook.com resolves to 8.8.8.8
-
-localhost_ip="127.0.0.2"
-facebook_ip="8.8.8.8"
-
-sed -i "s/^127\.0\.0\.1.*localhost$/127.0.0.1 localhost\n$localhost_ip localhost/" /etc/hosts
-sed -i "s/^.*facebook\.com$/$facebook_ip facebook.com/" /etc/hosts
+# Change your home IP
+cp /etc/hosts ~/hosts.new
+sed -i 's/^127.0.0.1.*/127.0.0.2 localhost/g' ~/hosts.new
+echo "8.8.8.8 facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
